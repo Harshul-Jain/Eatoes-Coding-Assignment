@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Eatoes_Assignment</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="no_eatoes_account">Don\'t have an Eatoes account</string>
 </resources>

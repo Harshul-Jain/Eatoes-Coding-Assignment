@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="sky_blue">#b9e2de</color>
     <color name="red">#fe7469</color>
+    <color name="mtrl_textinput_default_box_stroke_color">@color/sky_blue</color>
+
 </resources>
