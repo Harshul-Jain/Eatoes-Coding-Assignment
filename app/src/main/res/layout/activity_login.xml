@@ -184,6 +184,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/noAccountTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -194,6 +195,7 @@
             />
 
         <TextView
+            android:id="@+id/signUpTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

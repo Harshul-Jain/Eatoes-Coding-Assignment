@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Eatoes_Assignment</string>
-    <string name="sign_up">Sign Up</string>
-    <string name="no_eatoes_account">Don\'t have an Eatoes account</string>
+    <string name="sign_up"><u>Sign Up</u></string>
+    <string name="no_eatoes_account"><u>Don\'t have an Eatoes account. </u></string>
 </resources>
