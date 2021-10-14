@@ -10,6 +10,5 @@ import retrofit2.http.POST
 interface ApiService {
 
     @POST(Constants.LOGIN_URL)
-    @FormUrlEncoded
     suspend fun login(@Body request:LoginRequest):Response<LoginResponse>
 }
