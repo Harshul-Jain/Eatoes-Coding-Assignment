@@ -39,4 +39,10 @@ class LoginViewModel : ViewModel() {
 
         }
     }
+
+    // Function for validating password
+    fun validPassword(password: String): Boolean = LoginRepository.validPassword(password)
+
+    // Function for validating EmailId
+    fun validEmailId(emailId: String): Boolean = LoginRepository.validEmailId(emailId)
 }

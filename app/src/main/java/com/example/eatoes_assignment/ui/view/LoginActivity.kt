@@ -17,7 +17,7 @@ import com.example.eatoes_assignment.ui.viewmodel.LoginViewModel
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
-    val viewModel by lazy {
+    private val viewModel by lazy {
         ViewModelProvider(this).get(LoginViewModel::class.java)
     }
 
@@ -27,19 +27,31 @@ class LoginActivity : AppCompatActivity() {
         setSpannableString()
         //setOnClickListener on login Button
         loginBtn.setOnClickListener {
-            viewModel.login(emailEdt.text.toString(), passwordEdt.text.toString())
-            if (viewModel.result.isNotEmpty()) {
-                val intent = Intent(this, HomeActivity::class.java)
-                    .putExtra(
-                        "EMAIL_ID",
-                        emailEdt.text.toString()
-                    )
-                    .putExtra("TOKEN", viewModel.result)
-                startActivity(intent)
-            } else {
-                viewModel.login(emailEdt.text.toString())
-                if (viewModel.errorMessage.isNotEmpty()) {
-                    Toast.makeText(this, "${viewModel.errorMessage}", Toast.LENGTH_SHORT).show()
+            val emailId = emailEdt.text.toString()
+            val password = passwordEdt.text.toString()
+            val validEmailId = viewModel.validEmailId(emailId)
+            if (!validEmailId) {
+                emailEdt.error = "Enter correct Email ID"
+            }
+            val validPassword = viewModel.validPassword(password)
+            if (!validPassword) {
+                passwordEdt.error = "Enter correct Password "
+            }
+            if (validEmailId && validPassword) {
+                viewModel.login(emailId, password)
+                if (viewModel.result.isNotEmpty()) {
+                    val intent = Intent(this, HomeActivity::class.java)
+                        .putExtra(
+                            "EMAIL_ID",
+                            emailEdt.text.toString()
+                        )
+                        .putExtra("TOKEN", viewModel.result)
+                    startActivity(intent)
+                } else {
+                    viewModel.login(emailId)
+                    if (viewModel.errorMessage.isNotEmpty()) {
+                        Toast.makeText(this, viewModel.errorMessage, Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }
@@ -48,7 +60,6 @@ class LoginActivity : AppCompatActivity() {
     //Setting the SpannableString
     private fun setSpannableString() {
         val signUpText = SpannableString(getString(R.string.sign_up))
-        val noAccountText = SpannableString(getString(R.string.no_eatoes_account))
         val clickableSpan = object : ClickableSpan() {
             override fun onClick(widget: View) {
                 //send back
