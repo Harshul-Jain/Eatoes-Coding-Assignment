@@ -44,7 +44,7 @@
         android:gravity="center_horizontal"
         android:text="Log In with Eatoes Details"
         android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -72,7 +72,7 @@
             android:imeOptions="actionDone"
             android:maxLines="1"
             android:textColor="@color/red"
-            android:textSize="16sp"
+            android:textSize="14sp"
             app:textInputLayoutFocusedRectEnabled="false" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -101,7 +101,7 @@
             android:hint="Password / OTP"
             android:maxLines="1"
             android:textColor="@color/red"
-            android:textSize="16sp"
+            android:textSize="14sp"
             app:textInputLayoutFocusedRectEnabled="false" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -115,7 +115,7 @@
         android:gravity="center"
         android:text="Forget Password"
         android:textColor="@color/red"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:textStyle="bold" />
 
     <com.google.android.material.button.MaterialButton
@@ -132,19 +132,19 @@
         android:paddingBottom="10dp"
         android:text="Login"
         android:textAllCaps="false"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:cornerRadius="10dp" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="3dp"
+        android:layout_height="4dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:gravity="center"
         android:text="Or Continue With"
         android:textColor="@color/black"
-        android:textSize="18sp" />
+        android:textSize="14sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -155,22 +155,22 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_margin="5dp"
             android:background="@drawable/button_border"
             android:src="@mipmap/facebook_foreground" />
 
         <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_margin="5dp"
             android:background="@drawable/button_border"
             android:src="@mipmap/google_foreground" />
 
         <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_margin="5dp"
             android:background="@drawable/button_border"
             android:src="@mipmap/instagram_foreground" />
@@ -191,9 +191,8 @@
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:text="@string/no_eatoes_account"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            />
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/signUpTextView"
@@ -203,7 +202,7 @@
             android:gravity="center"
             android:text="@string/sign_up"
             android:textColor="@color/red"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="bold" />
     </LinearLayout>
 </LinearLayout>

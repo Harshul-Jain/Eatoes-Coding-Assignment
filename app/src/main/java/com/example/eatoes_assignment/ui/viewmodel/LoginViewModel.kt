@@ -1,5 +1,7 @@
 package com.example.eatoes_assignment.ui.viewmodel
 
+import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.eatoes_assignment.data.repos.LoginRepository
@@ -9,7 +11,7 @@ import kotlinx.coroutines.withContext
 
 class LoginViewModel : ViewModel() {
     var result: String = ""
-    var error: String = ""
+    var errorMessage: String = ""
     fun login(email: String, password: String) {
         viewModelScope.launch {
             val response = withContext(Dispatchers.IO) {
@@ -18,10 +20,23 @@ class LoginViewModel : ViewModel() {
             if (response.code() == 200) {
                 response.body()?.let {
                     result = it.token
+                    Log.d("Hello", "${it.token}")
                 }
-            } else if (response.code() == 400) {
-                // Return error message
             }
+        }
+    }
+
+    fun login(email: String) {
+        viewModelScope.launch {
+            val response = withContext(Dispatchers.IO) {
+                LoginRepository.login(email)
+            }
+
+            response.body()?.let {
+                errorMessage = it.error
+                Log.d("Hello", "${it.error}")
+            }
+
         }
     }
 }

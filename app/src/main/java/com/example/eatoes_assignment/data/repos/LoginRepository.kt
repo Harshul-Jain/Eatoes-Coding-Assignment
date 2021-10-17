@@ -7,4 +7,6 @@ object LoginRepository {
 
     suspend fun login(email: String, password: String) =
         Client.api.login(LoginRequest(email, password))
+
+    suspend fun login(email: String) = Client.api.login(email)
 }

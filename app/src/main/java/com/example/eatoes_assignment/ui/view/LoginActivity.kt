@@ -1,6 +1,7 @@
 package com.example.eatoes_assignment.ui.view
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.SpannableString
@@ -35,7 +36,11 @@ class LoginActivity : AppCompatActivity() {
                     )
                     .putExtra("TOKEN", viewModel.result)
                 startActivity(intent)
-
+            } else {
+                viewModel.login(emailEdt.text.toString())
+                if (viewModel.errorMessage.isNotEmpty()) {
+                    Toast.makeText(this, "${viewModel.errorMessage}", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
@@ -53,15 +58,12 @@ class LoginActivity : AppCompatActivity() {
             override fun updateDrawState(ds: TextPaint) {
                 super.updateDrawState(ds)
                 ds.isUnderlineText = true
-                ds.color = ds.linkColor
+                ds.color = Color.parseColor("#fe7469")
             }
         }
-        signUpText.setSpan(clickableSpan, 0, signUpText.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        signUpText.setSpan(clickableSpan, 0, signUpText.length, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
         signUpTextView.movementMethod = LinkMovementMethod.getInstance()
         signUpTextView.text = signUpText
-        noAccountText.setSpan(clickableSpan, 0, signUpText.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        noAccountTextView.movementMethod = LinkMovementMethod.getInstance()
-        noAccountTextView.text = noAccountText
     }
 
 
